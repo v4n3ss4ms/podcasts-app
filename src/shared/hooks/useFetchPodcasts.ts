@@ -5,14 +5,17 @@ import { PodcastLocator } from '../../modules/podcast/di/podcast.locator.ts'
 export const useFetchPodcasts = () => {
   const [podcasts, setPodcasts] = useState<Podcast[]>([])
 
+  const fetchPodcasts = async () => {
+    const response = await PodcastLocator.getPodcasts().execute()
+    setPodcasts(response)
+  }
+
   useEffect(() => {
-    PodcastLocator.getPodcasts()
-      .execute()
-      .then((response) => setPodcasts(response))
+    fetchPodcasts()
   }, [])
 
   return {
-    podcasts,
     setPodcasts,
+    podcasts,
   }
 }

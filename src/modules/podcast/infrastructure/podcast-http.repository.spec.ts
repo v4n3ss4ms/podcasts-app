@@ -1,7 +1,7 @@
 import { PodcastHttpRepository } from './podcast-http.repository.ts'
 import { anything, instance, mock, verify, when } from 'ts-mockito'
 import { PodcastDtoMother } from './podcast-dto.mother.ts'
-import { HttpClient } from '../../../core/http-client/http-client.ts'
+import { HttpClient } from '@core/http-client/http-client.ts'
 import { describe, expect, it } from 'vitest'
 import { PodcastMother } from '../domain/podcast.mother.ts'
 import { PodcastDetailDtoMother } from './podcast-detail-dto.mother.ts'
@@ -81,7 +81,7 @@ describe('PodcastHttpRepository', () => {
     await sut.getPodcastById('123')
     verify(
       httpClient.get(
-        'lookup?id=123&media=podcast&entity=podcastEpisode&limit=20',
+        'lookup?id=123&media=podcast&entity=podcastEpisode&limit=20&sort=recent',
       ),
     ).called()
   })

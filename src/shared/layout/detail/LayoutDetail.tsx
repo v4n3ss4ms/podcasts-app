@@ -1,19 +1,11 @@
-import { ReactNode, useEffect, useState } from 'react'
+import { ReactNode } from 'react'
 import { Link, Outlet, useParams } from 'react-router-dom'
 import styles from './layout-detail.module.css'
-import { PodcastLocator } from '../../../modules/podcast/di/podcast.locator.ts'
-import { Podcast } from '../../../modules/podcast/domain/podcast.ts'
+import { useFetchPodcastById } from '@hooks/useFetchPodcastById.ts'
 
-export function LayoutDetail(): ReactNode {
+export function Component(): ReactNode {
   const { podcastId } = useParams()
-  const [podcast, setPodcast] = useState<Podcast>()
-
-  useEffect(() => {
-    if (!podcastId) return
-    PodcastLocator.getPodcastById()
-      .execute(podcastId)
-      .then((podcast) => setPodcast(podcast))
-  }, [podcastId])
+  const podcast = useFetchPodcastById(podcastId)
 
   return (
     <div className={styles.layoutDetail}>
@@ -42,3 +34,5 @@ export function LayoutDetail(): ReactNode {
     </div>
   )
 }
+
+Component.displayName = 'LayoutDetail'

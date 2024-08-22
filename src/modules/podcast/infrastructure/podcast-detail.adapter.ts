@@ -1,4 +1,4 @@
-import { Adapter } from '../../../core/types/adapter.ts'
+import { Adapter } from '@core/types/adapter.ts'
 import { PodcastDetailDto } from './podcast-detail-dto.ts'
 import { PodcastDetail } from '../domain/podcast-detail.ts'
 
@@ -12,7 +12,7 @@ export class PodcastDetailAdapter
         .map((result) => ({
           episodeName: result.trackName,
           releaseDate: result.releaseDate,
-          duration: result.trackTimeMillis,
+          duration: result?.trackTimeMillis || 0,
           episodeId: result.trackId,
           url: result.episodeUrl,
           description: result.description,

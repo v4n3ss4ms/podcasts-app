@@ -10,7 +10,7 @@
 
 .totalEpisodes {
   width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  box-shadow: var(--shadow);
   font-size: 1.2rem;
   font-weight: bold;
   display: flex;
@@ -20,7 +20,7 @@
 }
 
 .wrapperTable {
-  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  box-shadow: var(--shadow);
   display: flex;
   justify-content: flex-start;
   border-radius: var(--border-radius);
@@ -40,8 +40,9 @@
 .table thead tr th {
   position: sticky;
   top: 0;
-  border-bottom: 2px solid var(--content-color-secondary);
-  background-color: white;
+
+  border-bottom: 1px solid var(--divider-color);
+  background-color: var(--background-color);
 }
 
 .table tbody {
@@ -62,6 +63,6 @@
   color: var(--color-primary);
 }
 
-.table tbody tr:nth-child(odd) {
+.table tbody tr:nth-child(even) {
   background-color: var(--odd-row);
 }

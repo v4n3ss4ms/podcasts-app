@@ -24,7 +24,7 @@ export const CardGrid = ({
         if (!entry.isIntersecting) return
         setPiece((prev) => [
           ...prev,
-          ...podcasts.slice(prev.length, prev.length + 10),
+          ...podcasts.slice(prev.length, prev.length + 20),
         ])
       },
       {

@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   place-content: center;
-  place-items: flex-start;
+  place-items: center;
   gap: 10rem 2rem;
   height: auto;
   margin: 10rem 0 5rem;

@@ -9,5 +9,5 @@
   border-radius: 4px;
   background-color: var(--color-primary);
   padding: 0.2rem;
-  color: #ffffff;
+  color: var(--background-color);
 }

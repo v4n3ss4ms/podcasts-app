@@ -11,28 +11,31 @@ interface PodcastCardProps {
   podcast: Podcast
 }
 
-export function PodcastCard({ podcast }: PodcastCardProps) {
+const useHideByTime = () => {
   const [hide, setIsHide] = useState<boolean>(true)
 
   useEffect(() => {
-    acc += 60
-    const timeOutId = setTimeout(() => {
-      setIsHide(false)
-    }, acc)
-
+    if (acc === 400 || acc < 0) acc = 0
+    acc += 40
+    const timeOutId = setTimeout(() => setIsHide(false), acc)
     return () => {
       clearTimeout(timeOutId)
       setIsHide(true)
-      acc -= 60
+      acc -= 40
     }
   }, [])
 
-  const { image: imageUrl } = podcast
+  return hide
+}
+
+export function PodcastCard({ podcast }: PodcastCardProps) {
+  const hide = useHideByTime()
+
   return !hide ? (
     <>
       <Card>
         <div className={styles.emptySpace}>
-          <CardImage url={imageUrl} />
+          <CardImage url={podcast.image} />
         </div>
         <CardFooter>
           <span className={styles.title}>{podcast.title}</span>

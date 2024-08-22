@@ -1,10 +1,10 @@
 import { ReactNode, useContext } from 'react'
 import styles from './header.module.css'
 import { Link } from 'react-router-dom'
-import FetchStateContext from '../../../core/contexts/context.ts'
+import fetchStateContext from '@core/contexts/context.ts'
 
 export function Header(): ReactNode {
-  const { isFetching } = useContext<{ isFetching: boolean }>(FetchStateContext)
+  const { isFetching } = useContext<{ isFetching: boolean }>(fetchStateContext)
 
   return (
     <header className={styles.header}>
@@ -12,7 +12,7 @@ export function Header(): ReactNode {
         <h1 className={styles.logotype}>
           <Link to={'/'}>Podcaster</Link>
         </h1>
-      <div>{isFetching && <span className={styles.loading}></span>}</div>
+        <div>{isFetching && <span className={styles.loading}></span>}</div>
       </div>
     </header>
   )

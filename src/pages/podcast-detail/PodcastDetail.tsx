@@ -1,19 +1,17 @@
 import { ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { millisecondsToHoursMinutesSeconds } from '../../core/utils/ms-to-minutes.ts'
-import { useFetchPodcastDetail } from './useFetchPodcastDetail.tsx'
+import { millisecondsToHoursMinutesSeconds } from '@core/utils/ms-to-seconds-hms.ts'
 import styles from './podcast-detail.module.css'
+import { useFetchPodcastDetail } from '@hooks/useFetchPodcastDetail.ts'
 
-export function PodcastDetail(): ReactNode {
+export function Component(): ReactNode {
   const { podcastId } = useParams()
   const { podcastDetail } = useFetchPodcastDetail(podcastId)
 
   return (
     <div className={styles.podcastDetail}>
       <div className={styles.header}>
-        <span className={styles.totalEpisodes}>
-          Episodes: {podcastDetail?.episodes.length}
-        </span>
+        <span className={styles.totalEpisodes}>Episodes: {podcastDetail?.episodes.length}</span>
       </div>
       <div className={styles.wrapperTable}>
         <table className={styles.table}>
@@ -30,18 +28,12 @@ export function PodcastDetail(): ReactNode {
                 return (
                   <tr key={key}>
                     <td>
-                      <Link
-                        to={`/podcast/${podcastId}/episode/${episode.episodeId}`}
-                      >
-                        {episode.episodeName}
-                      </Link>
+                      <Link to={`/podcast/${podcastId}/episode/${episode.episodeId}`}>{episode.episodeName}</Link>
                     </td>
                     <td>
                       {new Date(episode.releaseDate).toLocaleDateString()}
                     </td>
-                    <td style={{ textAlign: 'center' }}>
-                      {millisecondsToHoursMinutesSeconds(episode.duration)}
-                    </td>
+                    <td style={{ textAlign: 'center' }}>{millisecondsToHoursMinutesSeconds(episode.duration)}</td>
                   </tr>
                 )
               })}
@@ -51,3 +43,5 @@ export function PodcastDetail(): ReactNode {
     </div>
   )
 }
+
+Component.displayName = 'PodcastDetail'
