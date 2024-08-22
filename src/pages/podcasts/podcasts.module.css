@@ -1,0 +1,22 @@
+.podcast {
+  display: block;
+  flex: 1;
+}
+
+.innerPodcasts {
+  display: flex;
+  flex-direction: column;
+}
+
+.innerPodcasts > * + * {
+  margin-top: 3rem;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.toolbar > * + * {
+  margin-left: 1rem;
+}

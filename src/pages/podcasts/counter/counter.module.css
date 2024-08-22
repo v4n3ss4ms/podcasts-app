@@ -1,0 +1,13 @@
+.podcastCounter {
+  align-content: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.counter {
+  display: inline-flex;
+  border-radius: 4px;
+  background-color: var(--color-primary);
+  padding: 0.2rem;
+  color: #ffffff;
+}

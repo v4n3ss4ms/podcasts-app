@@ -1,0 +1,75 @@
+.layoutDetail {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(250px, 1fr) 3fr;
+  gap: 3rem;
+}
+
+.innerAside {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+}
+
+.img {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+}
+
+.content {
+  flex: 1;
+}
+
+.info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.author {
+  font-size: 0.85rem;
+  font-style: oblique;
+}
+
+.description {
+  padding: 1rem;
+  display: block;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.85rem;
+  font-style: oblique;
+  overflow: hidden;
+}
+
+.description > span {
+  align-self: flex-start;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.description > p {
+  text-overflow: ellipsis;
+}
+.description > * + * {
+  padding-top: 0.5rem;
+}

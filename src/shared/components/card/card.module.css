@@ -1,0 +1,24 @@
+.card {
+  flex: 1 1 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  background-clip: border-box;
+  padding: 1rem;
+  max-height: 30rem;
+  width: 18rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.innerCard {
+  position: relative;
+  flex: 1 1 auto;
+}
+
+.innerCard > * + * {
+  padding-top: 0.5rem;
+}

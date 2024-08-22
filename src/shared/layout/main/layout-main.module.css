@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  min-width: 1440px;
+  margin: 0 auto;
+}
+
+.main {
+  flex: 1;
+  order: 2;
+  display: flex;
+  padding: 3rem 2.5rem;
+}

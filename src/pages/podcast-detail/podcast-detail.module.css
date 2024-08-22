@@ -1,0 +1,67 @@
+.podcastDetail {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.podcastDetail > * + * {
+  margin-top: 1rem;
+}
+
+.totalEpisodes {
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-start;
+  border-radius: var(--border-radius);
+  padding: 1rem;
+}
+
+.wrapperTable {
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+  display: flex;
+  justify-content: flex-start;
+  border-radius: var(--border-radius);
+  padding: 0 1rem 1rem;
+  overflow: scroll;
+  max-height: 60vh;
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+  text-align: left;
+  position: relative;
+  border-collapse: collapse;
+}
+
+.table thead tr th {
+  position: sticky;
+  top: 0;
+  border-bottom: 2px solid var(--content-color-secondary);
+  background-color: white;
+}
+
+.table tbody {
+  overflow-y: scroll;
+  text-align: left;
+}
+
+.table > tbody tr td {
+  padding: 1rem;
+}
+
+.table thead > tr th {
+  padding: 2rem 1rem 1rem;
+}
+
+.table tbody tr td a {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: var(--odd-row);
+}

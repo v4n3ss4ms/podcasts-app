@@ -1,0 +1,21 @@
+.cardImage {
+  display: flex;
+  /*position: absolute;*/
+  /*bottom: 0;*/
+  /*left: 0;*/
+  margin: 0 auto;
+
+  /*position: absolute;*/
+  /**/
+  place-content: center;
+  place-items: center;
+  transform: translateY(-90%);
+  /*height: 10rem*/
+  /*border: 1px solid #000;*/
+  /*margin-top: 10rem;*/
+  /*margin-top: calc(99% - 10px);*/
+}
+
+.image {
+  clip-path: circle();
+}

@@ -18,8 +18,14 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "paths": {
+      "@shared/*": ["./src/shared/*"],
+      "@podcast/*": ["./src/features/podcast/*"]
+    },
+    "noFallthroughCasesInSwitch": true,
+//    "types": ["vitest/globals", "ts-mockito"]
   },
+
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
