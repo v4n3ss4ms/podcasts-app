@@ -7,9 +7,7 @@ import { PodcastDetailMother } from '../domain/podcast-detail.mother.ts'
 describe('GetPodcastEpisodeByIdQry', () => {
   it('should return a podcast episode', async () => {
     const { repository, sut } = setup()
-    when(repository.getPodcastById(anything())).thenResolve(
-      PodcastDetailMother.detail(),
-    )
+    when(repository.getPodcastById(anything())).thenResolve(PodcastDetailMother.detail())
 
     const actual = await sut.execute({
       podcastId: '123',

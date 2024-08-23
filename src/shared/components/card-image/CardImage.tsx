@@ -8,7 +8,7 @@ interface CardImageProps {
 export function CardImage({ url }: CardImageProps): ReactNode {
   return (
     <div className={styles.cardImage}>
-      <img className={styles.image} src={url} />
+      <img data-testid="img" className={styles.image} src={url} />
     </div>
   )
 }

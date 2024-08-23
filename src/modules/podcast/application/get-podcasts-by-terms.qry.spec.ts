@@ -18,10 +18,7 @@ describe('GetPodcastsByTermsQry', () => {
 
     const actual = await sut.execute('Joe,Blac,')
 
-    expect(actual).toEqual([
-      PodcastMother.getAll()[0],
-      PodcastMother.getAll()[1],
-    ])
+    expect(actual).toEqual([PodcastMother.getAll()[0], PodcastMother.getAll()[1]])
   })
 
   it('should return all podcasts when no terms are provided', async () => {

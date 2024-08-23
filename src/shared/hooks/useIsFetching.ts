@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useBroadcastChannel } from '@core/hooks/useBroadcastChannel.ts'
+import { useBroadcastChannel } from '@hooks/useBroadcastChannel.ts'
 
 const requestsFetching: boolean[] = []
 const requestsFetched: boolean[] = []

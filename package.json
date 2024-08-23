@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:dev": "npm run build -- --mode development",
     "test": "vitest",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint ./src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "format": "prettier --write ./src",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -17,6 +19,8 @@
     "react-router-dom": "6.23.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "6.4.2",
+    "@testing-library/react": "^15.0.5",
     "@types/node": "20.12.7",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
@@ -26,11 +30,14 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "global-jsdom": "^24.0.0",
+    "jsdom": "24.0.0",
     "prettier": "3.2.5",
     "ts-mockito": "2.6.1",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
     "vite-plugin-pwa": "^0.19.8",
+    "vite-tsconfig-paths": "4.3.2",
     "vitest": "^1.5.2"
   },
   "volta": {

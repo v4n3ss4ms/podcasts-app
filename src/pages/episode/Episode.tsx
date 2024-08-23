@@ -1,19 +1,11 @@
-import { ReactNode, useEffect, useState } from 'react'
+import { ReactNode } from 'react'
 import { useParams } from 'react-router-dom'
-import { PodcastLocator } from '../../modules/podcast/di/podcast.locator.ts'
-import type { Episode as TypeEpisode } from '../../modules/podcast/domain/episode.ts'
 import styles from './episode.module.css'
+import { useFetchPodcastEpisodeById } from '@hooks/useFetchPodcastEpisodeById.ts'
 
 export function Component(): ReactNode {
   const { podcastId, episodeId } = useParams()
-  const [episode, setEpisode] = useState<TypeEpisode>()
-
-  useEffect(() => {
-    if (!podcastId || !episodeId) return
-    PodcastLocator.getPodcastEpisodeById()
-      .execute({ podcastId, episodeId })
-      .then((episode) => setEpisode(episode))
-  }, [episodeId, podcastId])
+  const episode = useFetchPodcastEpisodeById(episodeId, podcastId)
 
   return (
     episode && (

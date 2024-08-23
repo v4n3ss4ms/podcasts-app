@@ -1,12 +1,11 @@
 const CACHE_NAME = 'v1'
 const INVALIDATE_CACHE_MS = 86_400_000
-// const INVALIDATE_CACHE_MS_1_MIN = 60_000
 
 const broadcast = new BroadcastChannel('sw-tunnel')
 
 self.addEventListener('install', function () {
   self.skipWaiting()
-  console.log('Service worker has been installed.')
+  console.debug('Service worker has been installed.')
 })
 
 self.addEventListener('activate', function (event) {
@@ -15,15 +14,12 @@ self.addEventListener('activate', function (event) {
 
 async function handleActivation() {
   await self.clients.claim()
-  console.log('Service worker has been activated.')
+  console.debug('Service worker has been activated.')
 }
 
 self.addEventListener('fetch', function (event) {
   const url = new URL(event.request.url)
-  if (
-    url.origin.includes('api.allorigins.win') ||
-    url.origin.includes('is1-ssl.mzstatic.com')
-  ) {
+  if (url.origin.includes('api.allorigins.win') || url.origin.includes('is1-ssl.mzstatic.com')) {
     onMessage({ type: 'STATE_LOAD_DATA', isFetching: true })
     return event.respondWith(cacheFirst(event.request))
   }
@@ -65,7 +61,7 @@ const cacheFirst = async (request) => {
     }
   }
 
-  console.log('Fetching from network...', request.url)
+  console.debug('Fetching from network...', request.url)
   const responseFromNetwork = await fetch(request)
   await addCache(request, responseFromNetwork)
 

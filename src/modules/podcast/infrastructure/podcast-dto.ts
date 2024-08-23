@@ -7,7 +7,7 @@ export interface PodcastDto {
   }
   'im:name': {
     label: string
-  },
+  }
   id: {
     label: string
     attributes: {

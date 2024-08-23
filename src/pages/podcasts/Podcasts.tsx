@@ -2,16 +2,12 @@ import { ReactNode, useCallback } from 'react'
 import styles from './podcasts.module.css'
 import { useFetchPodcasts } from '@shared/hooks/useFetchPodcasts.ts'
 import { useNavigate } from 'react-router-dom'
-import { PodcastId } from '../../modules/podcast/domain/podcast-id.ts'
+import { PodcastId } from '@podcast/domain/podcast-id.ts'
 import { Input } from '@shared/components/input/Input.tsx'
-import { CardGrid } from '@shared/components/card-grid/CardGrid.tsx'
-import { Counter } from './counter/Counter.tsx'
-import { PodcastCard } from './card/PodcastCard.tsx'
-import { PodcastLocator } from '../../modules/podcast/di/podcast.locator.ts'
-
-export interface FormSearchInput {
-  terms: string
-}
+import { Counter } from '@shared/components/counter/Counter.tsx'
+import { PodcastLocator } from '@podcast/di/podcast.locator.ts'
+import { PodcastGrid } from '@podcast/ui/grid/PodcastGrid.tsx'
+import { RenderPodcastCard } from '@podcast/ui/render-podcast-card/RenderPodcastCard.tsx'
 
 export function Podcasts(): ReactNode {
   const navigate = useNavigate()
@@ -21,7 +17,7 @@ export function Podcasts(): ReactNode {
 
   const handleSubmit = useCallback(async (terms: string) => {
     const response = await PodcastLocator.getPodcastByTerms().execute(terms)
-    setPodcasts(response)
+    setPodcasts((prevState) => (JSON.stringify(prevState) === JSON.stringify(response) ? prevState : response))
   }, [])
 
   return (
@@ -32,11 +28,7 @@ export function Podcasts(): ReactNode {
           <Input onChange={(ev) => handleSubmit(ev.target.value)} placeholder="Filter podcasts..." />
         </div>
 
-        <CardGrid
-          podcasts={podcasts}
-          onClicked={onClicked}
-          renderItem={(podcast) => <PodcastCard podcast={podcast} />}
-        ></CardGrid>
+        <PodcastGrid onClicked={onClicked} podcasts={podcasts} renderItem={RenderPodcastCard} />
       </div>
     </div>
   )

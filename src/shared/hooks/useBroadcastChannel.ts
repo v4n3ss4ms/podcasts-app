@@ -5,10 +5,7 @@ type EventData = {
   isFetching: boolean
 }
 
-export const useBroadcastChannel = (
-  channelName: string,
-  fn: (event: MessageEvent<EventData>) => void,
-) => {
+export const useBroadcastChannel = (channelName: string, fn: (event: MessageEvent<EventData>) => void) => {
   useEffect(() => {
     const broadcast = new BroadcastChannel(channelName)
     broadcast.onmessage = fn

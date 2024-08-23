@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { millisecondsToHoursMinutesSeconds } from '@core/utils/ms-to-seconds-hms.ts'
+import { millisecondsToHoursMinutesSeconds } from '@shared/utils/ms-to-seconds-hms.ts'
 
 describe('millisecondsToHoursMinutesSeconds', () => {
   it('should convert milliseconds to hours, minutes and seconds', () => {

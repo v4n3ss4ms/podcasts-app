@@ -8,7 +8,7 @@ interface LayoutProps {
 
 export const LayoutMain: FC<LayoutProps> = ({ children }: LayoutProps): ReactNode => (
   <div className={styles.container}>
-    <Header />
+    <Header title="Podcaster" />
     <main className={styles.main}>{children}</main>
   </div>
 )
