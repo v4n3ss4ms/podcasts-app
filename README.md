@@ -1,30 +1,50 @@
-# React + TypeScript + Vite
+# Podcaster
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table of contents
+- [Podcaster](#podcaster)
+    * [Requirements](#requirements)
+        + [1 - Install dependencies](#1---install-dependencies)
+    * [Development server](#development-server)
+        + [1 - Start the application](#1---start-the-application)
+        + [2 - Navigate](#2---navigate)
+    * [Build](#build)
+        + [1 - Build for development](#1---build-for-development)
+        + [2 - Build for production](#2---build-for-production)
+    * [Running unit tests](#running-unit-tests)
+    * [Production](#production)
 
-Currently, two official plugins are available:
+## Requirements
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1 - Install dependencies
 
-## Expanding the ESLint configuration
+Run `npm install`
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Development server
 
-- Configure the top-level `parserOptions` property like this:
+### 1 - Start the application
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Run `npm run dev` for a dev server.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### 2 - Navigate
+
+`http://localhost:5173/`
+
+## Build
+
+The build artifacts will be stored in the `dist/` directory.
+
+### 1 - Build for development
+
+Run `npm run build:dev`
+
+### 2 - Build for production
+
+Run `npm run build`
+
+## Running unit tests
+
+Run `npm run test` to execute the unit tests.
+
+## Production
+
+Visit [the deployed version in Vercel](https://podcasts-app-phi.vercel.app/)
