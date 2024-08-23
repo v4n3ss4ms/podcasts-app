@@ -1,7 +1,7 @@
 .layoutDetail {
   flex: 1;
   display: grid;
-  grid-template-columns: minmax(250px,350px) 3fr;
+  grid-template-columns: minmax(250px, 350px) 3fr;
   gap: 3rem;
 }
 
